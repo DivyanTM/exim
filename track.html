@@ -474,85 +474,88 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
 <script>
-  // Initialize map
-  var map = L.map('map').setView([8.5, 0.0], 5); // Centered West Africa
-
-  // Add OpenStreetMap tiles
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(map);
-
-  // Correct Sea Ports and Checkpoints
-  var routePoints = [
-    [6.4541, 3.3947],  // Lagos Port, Nigeria
-    [5.6306, -0.0800], // Tema Port, Ghana
-    [14.7167, -17.4677], // Dakar Port, Senegal
-    [25.0, -17.0],     // Mid-Atlantic checkpoint (on water)
-    [36.1408, -5.3536] // Algeciras Port, Spain
-  ];
-
-  // Port Names
-  var portNames = [
-    "Lagos Port, Nigeria",
-    "Tema Port, Ghana",
-    "Dakar Port, Senegal",
-    "Mid-Atlantic Checkpoint",
-    "Algeciras Port, Spain"
-  ];
-
-  // Add markers at each port
-  for (var i = 0; i < routePoints.length; i++) {
-    L.marker(routePoints[i]).addTo(map)
-      .bindPopup("<b>" + portNames[i] + "</b>");
-  }
-
-  // Draw ship route
-  var route = L.polyline(routePoints, {
-    color: 'blue',
-    weight: 4,
-    dashArray: '5, 10'
-  }).addTo(map);
-
-  // Moving cargo marker (Ship)
-  var cargoMarker = L.marker(routePoints[0], {
-    icon: L.divIcon({
-      className: 'moving-cargo-icon',
-      html: '<div style="background-color: red; width: 18px; height: 18px; border-radius: 50%; border: 2px solid white;"></div>',
-      iconSize: [20, 20]
-    })
-  }).addTo(map).bindPopup("<b>Ship: Sea Queen</b><br>Departed from Lagos");
-
-  // Animate the ship movement
-  let currentSegment = 0;
-  let step = 0;
-  const stepsPerSegment = 300; // more steps = smoother movement
-  const delay = 100; // ms between steps
-
-  function animateShip() {
-    if (currentSegment >= routePoints.length - 1) return; // Done!
-
-    const start = routePoints[currentSegment];
-    const end = routePoints[currentSegment + 1];
-
-    const lat = start[0] + ((end[0] - start[0]) * step) / stepsPerSegment;
-    const lng = start[1] + ((end[1] - start[1]) * step) / stepsPerSegment;
-
-    cargoMarker.setLatLng([lat, lng]);
-    map.panTo([lat, lng], { animate: true });
-
-    step++;
-    if (step > stepsPerSegment) {
-      step = 0;
-      currentSegment++;
+    // Initialize map centered over Nigeria
+    var map = L.map('map').setView([6.5, 5.0], 7);
+  
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+  
+    // Correct Nigerian Sea Ports
+    var routePoints = [
+      [6.4216, 3.4095],  // Lagos Port Complex
+      [6.4447, 3.3642],  // Tin Can Island Port
+      [6.4331, 3.5952],  // Lekki Deep Sea Port
+      [5.5167, 5.7500],  // Warri Port
+      [4.7774, 7.0167],  // Port Harcourt Port
+      [4.7357, 7.1466],  // Onne Port
+      [4.9741, 8.3417]   // Calabar Port
+    ];
+  
+    // Port Names
+    var portNames = [
+      "Lagos Port Complex",
+      "Tin Can Island Port",
+      "Lekki Deep Sea Port",
+      "Warri Port",
+      "Port Harcourt Port",
+      "Onne Port",
+      "Calabar Port"
+    ];
+  
+    // Add markers at each port
+    for (var i = 0; i < routePoints.length; i++) {
+      L.marker(routePoints[i]).addTo(map)
+        .bindPopup("<b>" + portNames[i] + "</b>");
     }
-
-    requestAnimationFrame(() => setTimeout(animateShip, delay));
-  }
-
-  animateShip(); // Start animation
-
-  map.fitBounds(route.getBounds()); // Zoom to fit route
-</script>
-
+  
+    // Draw ship route
+    var route = L.polyline(routePoints, {
+      color: 'blue',
+      weight: 4,
+      dashArray: '5, 10'
+    }).addTo(map);
+  
+    // Moving cargo marker (Ship)
+    var cargoMarker = L.marker(routePoints[0], {
+      icon: L.divIcon({
+        className: 'moving-cargo-icon',
+        html: '<div style="background-color: red; width: 18px; height: 18px; border-radius: 50%; border: 2px solid white;"></div>',
+        iconSize: [20, 20]
+      })
+    }).addTo(map).bindPopup("<b>Ship: Sea Queen</b><br>Departed from Lagos");
+  
+    // Animate the ship movement
+    let currentSegment = 0;
+    let step = 0;
+    const stepsPerSegment = 300; // smoother animation
+    const delay = 100; // ms between steps
+  
+    function animateShip() {
+      if (currentSegment >= routePoints.length - 1) return; // Done!
+  
+      const start = routePoints[currentSegment];
+      const end = routePoints[currentSegment + 1];
+  
+      const lat = start[0] + ((end[0] - start[0]) * step) / stepsPerSegment;
+      const lng = start[1] + ((end[1] - start[1]) * step) / stepsPerSegment;
+  
+      cargoMarker.setLatLng([lat, lng]);
+      map.panTo([lat, lng], { animate: true });
+  
+      step++;
+      if (step > stepsPerSegment) {
+        step = 0;
+        currentSegment++;
+      }
+  
+      requestAnimationFrame(() => setTimeout(animateShip, delay));
+    }
+  
+    animateShip(); // Start animation
+  
+    map.fitBounds(route.getBounds()); // Zoom to fit route
+  </script>
 </body>
 </html>
