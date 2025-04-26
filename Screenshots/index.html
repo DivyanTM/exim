@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marpol Annex</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <!-- <div class="dropdown">
+
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown link
+        </a>
+      
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">BALLAST WATER RECORD BOOK</a></li>
+          <li><a class="dropdown-item" href="#">CARGO RECORD BOOK</a></li>
+          <li><a class="dropdown-item" href="#">GARBAGE RECORD BOOK</a></li>
+          <li><a class="dropdown-item" href="#">HSFO to LSFO Changeover Log</a></li>
+          <li><a class="dropdown-item" href="#">NOx TIER CHANGEOVER RECORD BOOK</a></li>
+          <li><a class="dropdown-item" href="#">Ozone-Depleting Substances (ODS) Record Book</a></li>
+          <li><a class="dropdown-item" href="#">OIL RECORD BOOK</a></li>
+          <li><a class="dropdown-item" href="#">RECORD OF FUEL OIL RECEIVED</a></li>
+          <li><a class="dropdown-item" href="#">TRACKING AND CONTROL RECORD FOR MARPOL FUEL OIL SAMPLE</a></li>
+        </ul>
+      </div> -->
+ <!-- Bootstrap CSS -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+ <style>
+     #formTabs, #tabContent > .tab-pane {
+         display: none; /* Hide tabs & forms initially */
+     }
+ </style>
+</head>
+<body>
+
+    <div class="container mt-4">
+		<h3 class="text-center p-2"></h3>
+	
+		<!-- Input Field -->
+		<div class="mb-3">
+			<label class="form-label">IMO NUMBER</label>
+			<input type="text" id="inputField" class="form-control" placeholder="">
+		</div>
+	
+		<!-- Submit Button -->
+		<div class="text-end">
+			<button id="submitButton" class="btn btn-primary">Submit</button>
+		</div>
+	
+		<!-- Nav Tabs (Initially Hidden) -->
+		<ul class="nav nav-tabs mt-3" id="formTabs">
+			<li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#form1">BALLAST WATER RECORD BOOK</a></li>
+			<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#form2">CARGO RECORD BOOK</a></li>
+			<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#form3">GARBAGE RECORD BOOK</a></li>
+			<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#form4">HSFO to LSFO Changeover Log</a></li>
+			<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#form5">NOx TIER CHANGEOVER RECORD BOOK</a></li>
+			<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#form6">Ozone-Depleting Substances (ODS) Record Book</a></li>
+			<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#form7">OIL RECORD BOOK</a></li>
+			<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#form8">RECORD OF FUEL OIL RECEIVED</a></li>
+			<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#form9">TRACKING AND CONTROL RECORD FOR MARPOL FUEL OIL SAMPLE</a></li>
+		</ul>
+	
+		<!-- Tab Content (Initially Hidden) -->
+		<div class="tab-content mt-3" id="tabContent">
+			<div class="tab-pane fade show active firstab" id="form1">
+				<!-- <h5>BALLAST WATER RECORD BOOK</h5>
+				<input type="text" class="form-control" placeholder="Form 1 Input"> -->
+				<div class="container mt-5">
+					<div class="card p-4 shadow">
+					<h4 class="text-center mb-4 ">BALLAST WATER RECORD BOOK</h4>
+						<div class="row g-3">
+							<div class="col-md-3">
+								<label class="form-label">Date</label>
+								<input type="date" class="form-control">
+							</div>
+							<div class="col-md-3">
+								<label class="form-label">Time</label>
+								<input type="time" class="form-control">
+							</div>
+							<div class="col-md-3">
+								<label class="form-label">Ship Name</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-3">
+								<label class="form-label">Ship Location</label>
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="row g-3 mt-2">
+							<div class="col-md-3">
+								<label class="form-label">Operation Type</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-3">
+								<label class="form-label">Water Depth</label>
+								<input type="number" class="form-control">
+							</div>
+							<div class="col-md-3">
+								<label class="form-label">Location of Uptake</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-3">
+								<label class="form-label">Distance from Land</label>
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="mt-3 d-flex">
+							<h5>Ballast Treatment System</h5>
+							<div class="form-check mx-3">
+								<input class="form-check-input" type="radio" name="treatment" id="ballast" checked>
+								<label class="form-check-label" for="ballast">Ballast Treatment System</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="treatment" id="chemical">
+								<label class="form-check-label" for="chemical">Chemical Treatment</label>
+							</div>
+						</div>
+						<div class="mt-3">
+							<h5>Loading Ballast</h5>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Retained Before</th>
+										<th>Uptake</th>
+										<th>Accidental Uptake</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><input type="text" class="form-control"></td>
+										<td><input type="text" class="form-control"></td>
+										<td><input type="text" class="form-control"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="mt-3">
+							<h5>Discharge of Ballast</h5>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>To Sea</th>
+										<th>To Reception Facilities</th>
+										<th>Accidental Discharge</th>
+										<th>Retained</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><input type="text" class="form-control"></td>
+										<td><input type="text" class="form-control"></td>
+										<td><input type="text" class="form-control"></td>
+										<td><input type="text" class="form-control"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="mt-3">
+							<label class="form-label">Officer's Signature</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="text-end mt-3">
+							<button type="submit" class="btn btn-primary">Submit</button>
+							<button class="btn btn-dark">Cancel</button>
+						</div>
+				</div>
+			</div>
+			</div>
+			<div class="tab-pane fade" id="form2">
+				<!-- <h5>CARGO RECORD BOOK</h5>
+				<input type="text" class="form-control" placeholder="Form 2 Input"> -->
+				<div class="container mt-5">
+					<div class="card p-4 shadow">
+						<h4 class="text-center mb-4">CARGO RECORD BOOK</h4>
+				
+						<form>
+							<div class="mb-3">
+								<label class="form-label">Ship Name</label>
+								<input type="text" class="form-control" placeholder="Enter Ship Name">
+							</div>
+							<div class="row mb-3">
+								<div class="col">
+									<label class="form-label">Distinctive No. or Letter</label>
+									<input type="text" class="form-control" placeholder="Enter Distinctive No. or Letter">
+								</div>
+							</div>
+				
+							<div class="row g-3 mt-2">
+								<div class="col-md-3">
+									<label class="form-label">Date</label>
+									<input type="date" class="form-control">
+								</div>
+								<div class="col-md-3">
+									<label class="form-label">Time</label>
+									<input type="time" class="form-control">
+								</div>
+								<div class="col-md-3">
+									<label class="form-label">Quantity</label>
+									<input type="number" class="form-control">
+								</div>
+								<div class="col-md-3">
+									<label class="form-label">Cargo Type</label>
+									<input type="text" class="form-control">
+								</div>
+							</div>
+				
+							<div class="row g-3 mt-2">
+								<div class="col-md-6">
+									<label class="form-label">Item Number</label>
+									<input type="text" class="form-control">
+								</div>
+								<div class="col-md-6">
+									<label class="form-label">Code Name</label>
+									<input type="text" class="form-control">
+								</div>
+							</div>
+				
+							<div class="mt-3">
+								<label class="form-label">Record of Operation</label>
+								<textarea class="form-control" rows="3"></textarea>
+							</div>
+				
+							<div class="mt-3">
+								<label class="form-label">Officer's Signature</label>
+								<input type="text" class="form-control">
+							</div>
+				
+							<div class="text-end mt-3">
+								<button type="submit" class="btn btn-primary">Submit</button>
+								<button class="btn btn-dark">Cancel</button>
+							</div>
+						</form>
+				
+					</div>
+				</div>
+				</div>
+			<div class="tab-pane fade" id="form3">
+				<!-- <h5>GARBAGE RECORD BOOK</h5>
+				<input type="text" class="form-control" placeholder="Form 3 Input"> -->
+				<div class="container mt-5">
+					<div class="card p-4 shadow">
+						<h4 class="text-center mb-4">GARBAGE RECORD BOOK</h4>
+				
+						<form>
+							<div class="mb-3">
+								<label class="form-label">Ship Name</label>
+								<input type="text" class="form-control" placeholder="Enter Ship Name">
+							</div>
+							<div class="row mb-3">
+								<div class="col">
+									<label class="form-label">Distinctive No. or Letter</label>
+									<input type="text" class="form-control" placeholder="Enter Distinctive No. or Letter">
+								</div>
+							</div>
+				
+							<div class="row g-3 mt-2">
+								<div class="col-md-4">
+									<label class="form-label">Date</label>
+									<input type="date" class="form-control">
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Time</label>
+									<input type="time" class="form-control">
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Ship Position</label>
+									<input type="text" class="form-control">
+								</div>
+							</div>
+				
+							<div class="row g-3 mt-2">
+								<div class="col-md-4">
+									<label class="form-label">Quantity Disposed INTO SEA</label>
+									<input type="number" class="form-control">
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Quantity Disposed INTO RECEPTION</label>
+									<input type="number" class="form-control">
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Disposal Method</label>
+									<input type="text" class="form-control">
+								</div>
+							</div>
+				
+							<div class="row g-3 mt-2">
+								<div class="col-md-6">
+									<label class="form-label">Garbage Type</label>
+									<input type="text" class="form-control" value="C - DOMESTIC WASTE">
+								</div>
+								<div class="col-md-6">
+									<label class="form-label">Incineration Detail</label>
+									<textarea class="form-control" rows="3"></textarea>
+								</div>
+							</div>
+				
+							<div class="mt-3">
+								<label class="form-label">Officer's Signature</label>
+								<input type="text" class="form-control">
+							</div>
+				
+							<div class="text-end mt-3">
+								<button type="submit" class="btn btn-primary">Submit</button>
+								<button class="btn btn-dark">Cancel</button>
+							</div>
+						</form>
+				
+					</div>
+				</div>
+				</div>
+			<div class="tab-pane fade" id="form4">
+				<!-- <h5>HSFO to LSFO Changeover Log</h5>
+				<input type="text" class="form-control" placeholder="Form 4 Input"> -->
+				<div class="container mt-5">
+					<div class="card p-4 shadow">
+						<h4 class="text-center mb-4">HSFO to LSFO Changeover Log</h4>
+				
+						<form>
+							<div class="mb-3">
+								<label class="form-label">Ship Name</label>
+								<input type="text" class="form-control" placeholder="Enter Ship Name">
+							</div>
+							<div class="row mb-3">
+								<div class="col">
+									<label class="form-label">Distinctive No. or Letter</label>
+									<input type="text" class="form-control" placeholder="Enter Distinctive No. or Letter">
+								</div>
+							</div>
+				
+							<h5 class="mt-4">Changeover to LSFO</h5>
+							<div class="row g-3">
+								<div class="col-md-4">
+									<label class="form-label">Begin (Date & Time)</label>
+									<input type="datetime-local" class="form-control" required>
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Complete (Date & Time)</label>
+									<input type="datetime-local" class="form-control" required>
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Regulated Area Entry</label>
+									<input type="text" class="form-control" required>
+								</div>
+							</div>
+				
+							<h5 class="mt-4">Changeover to HSFO</h5>
+							<div class="row g-3">
+								<div class="col-md-4">
+									<label class="form-label">Begin (Date & Time)</label>
+									<input type="datetime-local" class="form-control" required>
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Complete (Date & Time)</label>
+									<input type="datetime-local" class="form-control" required>
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Regulated Area Exit</label>
+									<input type="text" class="form-control" required>
+								</div>
+							</div>
+				
+							<div class="row g-3 mt-3">
+								<div class="col-md-6">
+									<label class="form-label">Changeover Procedure</label>
+									<select class="form-select" required>
+										<option value="">Select Procedure</option>
+										<option value="hybrid">Hybrid</option>
+										<option value="manual">Manual</option>
+									</select>
+								</div>
+								<div class="col-md-6">
+									<label class="form-label">Officer's Signature</label>
+									<input type="text" class="form-control" required>
+								</div>
+							</div>
+				
+							<div class="text-end mt-4">
+								<button type="submit" class="btn btn-primary">Submit</button>
+								<button class="btn btn-dark">Cancel</button>
+							</div>
+						</form>
+				
+					</div>
+				</div>
+				</div>
+			<div class="tab-pane fade" id="form5">
+				<!-- <h5>NOx TIER CHANGEOVER RECORD BOOK</h5>
+				<input type="text" class="form-control" placeholder="Form 5 Input"> -->
+				<div class="container mt-5">
+					<div class="card p-4 shadow">
+						<h4 class="text-center mb-4">NOx TIER CHANGEOVER RECORD BOOK</h4>
+				
+						<form>
+							<!-- Ship Details -->
+							<div class="mb-3">
+								<label class="form-label">Ship Name</label>
+								<input type="text" class="form-control" placeholder="Enter Ship Name">
+							</div>
+							<div class="row mb-3">
+								<div class="col">
+									<label class="form-label">Distinctive No. or Letter</label>
+									<input type="text" class="form-control" placeholder="Enter Distinctive No. or Letter">
+								</div>
+							</div>
+				
+							<!-- Date & Time -->
+							<div class="row g-3 mt-3">
+								<div class="col-md-6">
+									<label class="form-label">Date</label>
+									<input type="date" class="form-control" required>
+								</div>
+								<div class="col-md-6">
+									<label class="form-label">SMT TIME</label>
+									<input type="time" class="form-control" required>
+								</div>
+							</div>
+				
+							<!-- Ship Position -->
+							<div class="mt-3">
+								<label class="form-label">Ship Position</label>
+								<input type="text" class="form-control" required>
+							</div>
+				
+							<!-- Event Details -->
+							<div class="row g-3 mt-3">
+								<div class="col-md-4">
+									<label class="form-label">Event</label>
+									<input type="text" class="form-control" required>
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Standby Engine</label>
+									<input type="text" class="form-control" required>
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Engine Status</label>
+									<input type="text" class="form-control" required>
+								</div>
+							</div>
+				
+							<!-- Engine Tier Details -->
+							<div class="row g-3 mt-3">
+								<div class="col-md-6">
+									<label class="form-label">Engine Tier Status</label>
+									<input type="text" class="form-control" required>
+								</div>
+								<div class="col-md-6">
+									<label class="form-label">Tier II</label>
+									<input type="text" class="form-control" required>
+								</div>
+							</div>
+				
+							<!-- Remarks -->
+							<div class="mt-3">
+								<label class="form-label">Remarks</label>
+								<textarea class="form-control" rows="3" required></textarea>
+							</div>
+				
+							<!-- Signatures -->
+							<div class="row g-3 mt-3">
+								<div class="col-md-6">
+									<label class="form-label">D/E Signature</label>
+									<input type="text" class="form-control" required>
+								</div>
+								<div class="col-md-6">
+									<label class="form-label">C/E Signature</label>
+									<input type="text" class="form-control" required>
+								</div>
+							</div>
+				
+							<!-- Submit Button -->
+							<div class="text-end mt-4">
+								<button type="submit" class="btn btn-primary">Submit</button>
+								<button class="btn btn-dark">Cancel</button>
+							</div>
+						</form>
+				
+					</div>
+				</div>
+				</div>
+			<div class="tab-pane fade" id="form6">
+				<!-- <h5>Ozone-Depleting Substances (ODS) Record Book</h5>
+				<input type="text" class="form-control" placeholder="Form 6 Input"> -->
+				<div class="container mt-5">
+					<div class="card p-4 shadow">
+						<h4 class="text-center mb-4">Ozone-Depleting Substances (ODS) Record Book</h4>
+				
+						<form>
+							<!-- Ship Details -->
+							<div class="mb-3">
+								<label class="form-label">Ship Name</label>
+								<input type="text" class="form-control" placeholder="Enter Ship Name">
+							</div>
+							<div class="row mb-3">
+								<div class="col">
+									<label class="form-label">Distinctive No. or Letter</label>
+									<input type="text" class="form-control" placeholder="Enter Distinctive No. or Letter">
+								</div>
+							</div>
+				
+							<!-- Date & Capacity -->
+							<div class="row g-3 mt-3">
+								<div class="col-md-6">
+									<label class="form-label">Date</label>
+									<input type="date" class="form-control" required>
+								</div>
+								<div class="col-md-6">
+									<label class="form-label">Capacity (KG)</label>
+									<input type="number" class="form-control" value="1" required>
+								</div>
+							</div>
+				
+							<!-- ODS Type -->
+							<div class="mt-3">
+								<label class="form-label">ODS Type</label>
+								<select class="form-select" required>
+									<option selected disabled>Select ODS Type</option>
+									<option value="HFCs">HFCs</option>
+									<option value="CFCs">CFCs</option>
+									<option value="HCFCs">HCFCs</option>
+								</select>
+							</div>
+				
+							<!-- Maintenance & Location -->
+							<div class="row g-3 mt-3">
+								<div class="col-md-6">
+									<label class="form-label">Maintenance Activity</label>
+									<select class="form-select" required>
+										<option selected disabled>Select Activity</option>
+										<option value="leak_repair">Leak Repair</option>
+										<option value="replacement">Replacement</option>
+										<option value="disposal">Disposal</option>
+									</select>
+								</div>
+								<div class="col-md-6">
+									<label class="form-label">Location</label>
+									<input type="text" class="form-control" required>
+								</div>
+							</div>
+				
+							<!-- Equipment Name -->
+							<div class="mt-3">
+								<label class="form-label">Equipment Name</label>
+								<input type="text" class="form-control" required>
+							</div>
+				
+							<!-- Process Detail -->
+							<div class="mt-3">
+								<label class="form-label">Process Detail</label>
+								<textarea class="form-control" rows="3" required></textarea>
+							</div>
+				
+							<!-- Officer's Signature -->
+							<div class="mt-3">
+								<label class="form-label">Officer's Signature</label>
+								<input type="text" class="form-control" required>
+							</div>
+				
+							<!-- Submit Button -->
+							<div class="text-end mt-4">
+								<button type="submit" class="btn btn-primary">Submit</button>
+								<button class="btn btn-dark">Cancel</button>
+							</div>
+						</form>
+				
+					</div>
+				</div>
+				</div>
+			<div class="tab-pane fade" id="form7">
+				<!-- <h5>OIL RECORD BOOK</h5>
+				<input type="text" class="form-control" placeholder="Form 7 Input"> -->
+				<div class="container mt-5">
+					<div class="card p-4 shadow">
+						<h3 class="text-center mb-4">OIL RECORD BOOK</h3>
+						<form>
+							<div class="mb-3">
+								<label class="form-label">Ship Name</label>
+								<input type="text" class="form-control" placeholder="Enter Ship Name">
+							</div>
+							<div class="row mb-3">
+								<!-- <div class="col">
+									<label class="form-label">IMO No.</label>
+									<input type="text" class="form-control" placeholder="Enter IMO Number">
+								</div> -->
+								<div class="col">
+									<label class="form-label">Distinctive No. or Letter</label>
+									<input type="text" class="form-control" placeholder="Enter Distinctive No. or Letter">
+								</div>
+							</div>
+							<div class="row mb-3">
+								<div class="col">
+									<label class="form-label">Date</label>
+									<input type="date" class="form-control">
+								</div>
+								<div class="col">
+									<label class="form-label">Code (Letter)</label>
+									<input type="text" class="form-control" placeholder="Enter Code">
+								</div>
+							</div>
+							<div class="row mb-3">
+								<div class="col">
+									<label class="form-label">Time</label>
+									<input type="time" class="form-control">
+								</div>
+								<div class="col">
+									<label class="form-label">Item No.</label>
+									<input type="text" class="form-control" placeholder="Enter Item No.">
+								</div>
+							</div>
+							<div class="row mb-3">
+								<div class="col">
+									<label class="form-label">Operation Type</label>
+									<input type="text" class="form-control" placeholder="Enter Operation Type">
+								</div>
+								<div class="col">
+									<label class="form-label">Tank Name</label>
+									<input type="text" class="form-control" placeholder="Enter Tank Name">
+								</div>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Records</label>
+								<textarea class="form-control" rows="3" placeholder="Enter Records"></textarea>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Officer's Signature</label>
+								<input type="text" class="form-control" placeholder="Enter Officer's Signature">
+							</div>
+							<div class="text-end mt-4">
+							<button type="submit" class="btn btn-primary">Submit</button>
+							<button class="btn btn-dark">Cancel</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="tab-pane fade" id="form8">
+				<!-- <h5>RECORD OF FUEL OIL RECEIVED</h5>
+				<input type="text" class="form-control" placeholder="Form 8 Input"> -->
+				<div class="container mt-5">
+					<div class="card p-4 shadow">
+						<h4 class="text-center mb-4">RECORD OF FUEL OIL RECEIVED</h4>
+				
+						<form>
+							<!-- Ship Details -->
+							<div class="mb-3">
+								<label class="form-label">Ship Name</label>
+								<input type="text" class="form-control" placeholder="Enter Ship Name">
+							</div>
+							<div class="row mb-3">
+								<div class="col">
+									<label class="form-label">Distinctive No. or Letter</label>
+									<input type="text" class="form-control" placeholder="Enter Distinctive No. or Letter">
+								</div>
+							</div>
+				
+							<!-- Bunker & Port Details -->
+							<div class="row g-3 mt-3">
+								<div class="col-md-4">
+									<label class="form-label">Bunker Delivery Ref No.</label>
+									<input type="text" class="form-control" required>
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Date</label>
+									<input type="date" class="form-control" required>
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Port of Delivery</label>
+									<input type="text" class="form-control" required>
+								</div>
+							</div>
+				
+							<!-- Fuel Specification -->
+							<div class="row g-3 mt-3">
+								<div class="col-md-6">
+									<label class="form-label">Fuel Specification</label>
+									<input type="text" class="form-control" required>
+								</div>
+								<div class="col-md-3">
+									<label class="form-label">Grade</label>
+									<input type="text" class="form-control" required>
+								</div>
+								<div class="col-md-3">
+									<label class="form-label">Sulphur (%)</label>
+									<input type="text" class="form-control" required>
+								</div>
+							</div>
+				
+							<!-- Tank Details -->
+							<div class="row g-3 mt-3">
+								<div class="col-md-4">
+									<label class="form-label">Tank No.</label>
+									<input type="text" class="form-control" required>
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Quantity (MT)</label>
+									<input type="number" class="form-control" required>
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">C/E Signature</label>
+									<input type="text" class="form-control" required>
+								</div>
+							</div>
+				
+							<!-- Submit Button -->
+							<div class="text-end mt-4">
+								<button type="submit" class="btn btn-primary">Submit</button>
+								<button class="btn btn-dark">Cancel</button>
+							</div>
+						</form>
+				
+					</div>
+				</div>
+				</div>
+			<div class="tab-pane fade" id="form9">
+				<!-- <h5>TRACKING AND CONTROL RECORD FOR MARPOL FUEL OIL SAMPLE</h5>
+				<input type="text" class="form-control" placeholder="Form 9 Input"> -->
+				<div class="container mt-5">
+					<div class="card p-4 shadow">
+						<h4 class="text-center mb-4">TRACKING AND CONTROL RECORD FOR MARPOL FUEL OIL SAMPLE</h4>
+				
+						<form>
+							<!-- Ship Details -->
+							<div class="mb-3">
+								<label class="form-label">Ship Name</label>
+								<input type="text" class="form-control" placeholder="Enter Ship Name">
+							</div>
+							<div class="row mb-3">
+								<div class="col">
+									<label class="form-label">Distinctive No. or Letter</label>
+									<input type="text" class="form-control" placeholder="Enter Distinctive No. or Letter">
+								</div>
+							</div>
+				
+							<!-- Bunker & Supplier Details -->
+							<div class="row g-3 mt-3">
+								<div class="col-md-4">
+									<label class="form-label">Date</label>
+									<input type="date" class="form-control" required>
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Bunker Delivery Ref No.</label>
+									<input type="text" class="form-control" required>
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Origin of Supplier</label>
+									<input type="text" class="form-control" required>
+								</div>
+							</div>
+				
+							<!-- Letter of Protest & Sample Destruction -->
+							<div class="row g-3 mt-3">
+								<div class="col-md-4">
+									<label class="form-label">Letter of Protest Issued</label>
+									<input type="text" class="form-control" required>
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Letter of Protest Copy To:</label>
+									<input type="text" class="form-control" required>
+								</div>
+								<div class="col-md-4">
+									<label class="form-label">Date of Sample Destroyed</label>
+									<input type="date" class="form-control" required>
+								</div>
+							</div>
+				
+							<!-- Officer's Signature -->
+							<div class="row g-3 mt-3">
+								<div class="col-md-12 text-center">
+									<label class="form-label">Officer's Signature</label>
+									<input type="text" class="form-control w-50 mx-auto" required>
+								</div>
+							</div>
+				
+							<!-- Submit Button -->
+							<div class="text-end mt-4">
+								<button type="submit" class="btn btn-primary">Submit</button>
+								<button class="btn btn-dark">Cancel</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+    <!-- Bootstrap JS (Popper.js included) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- JavaScript to Show Forms After Input -->
+
+<!-- JavaScript to Show Forms After Submit -->
+<script>
+    document.getElementById("submitButton").addEventListener("click", function() {
+        let inputValue = document.getElementById("inputField").value.trim();
+        
+        if (inputValue.length > 0) {
+            document.getElementById("formTabs").style.display = "block";
+        } else {
+            alert("Please enter details before submitting.");
+        }
+    });
+
+    // Show form content when clicking the tab
+    document.querySelectorAll('.nav-link').forEach(tab => {
+        tab.addEventListener('click', function() {
+            document.querySelectorAll('.tab-pane').forEach(form => {
+                form.style.display = "none"; // Hide all forms
+            });
+            let targetForm = document.querySelector(this.getAttribute("href"));
+            targetForm.style.display = "block"; // Show selected form
+        });
+    });
+</script>
+
+</body>
+</html>

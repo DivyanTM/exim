@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truck List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Checked-In Trucks</h2>
+    <ul id="truckList" class="list-group">
+        <!-- Truck items will be displayed here -->
+    </ul>
+    <a href="scan.html" class="btn btn-primary mt-3">Scan Another Truck</a>
+</div>
+
+<script>
+    let truckData = JSON.parse(localStorage.getItem('checkedInTrucks')) || [];
+
+    function updateTruckList() {
+        const truckListElement = document.getElementById("truckList");
+        truckListElement.innerHTML = "";
+
+        truckData.forEach((truck, index) => {
+            const listItem = document.createElement("li");
+            listItem.classList.add("list-group-item");
+            listItem.innerHTML = `
+                <strong>Truck ID:</strong> ${truck.id} <br>
+                <strong>Driver:</strong> ${truck.driver} <br>
+                <strong>Vehicle:</strong> ${truck.vehicle} <br>
+                <strong>Status:</strong> ${truck.status} <br>
+                <strong>Cargo ID:</strong> ${truck.cargoId} <br>
+                <button class="btn btn-info mt-2" onclick="trackTruck(${index})">Track on Map</button>
+            `;
+            truckListElement.appendChild(listItem);
+        });
+    }
+
+    function trackTruck(index) {
+        localStorage.setItem('trackTruckIndex', index);
+        window.location.href = 'tracks.html'; // Redirect to map tracking page
+    }
+
+    updateTruckList();
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
