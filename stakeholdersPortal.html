@@ -113,42 +113,42 @@
               <!-- sidebar menu -->
               <ul class="nav sidebar-inner" id="sidebar-menu">
                 <li class="has-sub active expand" id="dashboardMenu">
-                    <a class="sidenav-item-link" href="dashboard.html">
+                    <a class="sidenav-item-link" href="stakeholdersPortal.html">
                       <i class="mdi mdi-view-dashboard-outline"></i>
                       <span class="nav-text">Dashboard</span>
                     </a>
                   </li>
                 
                   <li class="has-sub" id="detailsMenu">
-                    <a class="sidenav-item-link" href="details.html">
+                    <a class="sidenav-item-link" >
                       <i class="mdi mdi-file-document-outline"></i>
                       <span class="nav-text">Applications</span>
                     </a>
                   </li>
                 
                   <li class="has-sub" id="assessmentMenu">
-                    <a class="sidenav-item-link" href="assessment.html">
+                    <a class="sidenav-item-link" >
                       <i class="mdi mdi-calculator-variant"></i>
                       <span class="nav-text">Duties & Taxes</span>
                     </a>
                   </li>
                 
                   <li class="has-sub" id="paymentProofMenu">
-                    <a class="sidenav-item-link" href="payment-proof.html">
+                    <a class="sidenav-item-link" >
                       <i class="mdi mdi-check-decagram"></i>
                       <span class="nav-text">Verify Payment</span>
                     </a>
                   </li>
                 
                   <li class="has-sub" id="inspectionMenu">
-                    <a class="sidenav-item-link" href="inspection.html">
+                    <a class="sidenav-item-link" >
                       <i class="mdi mdi-clipboard-check-outline"></i>
                       <span class="nav-text">Inspection</span>
                     </a>
                   </li>
                 
                   <li class="has-sub" id="certificationMenu">
-                    <a class="sidenav-item-link" href="certification.html">
+                    <a class="sidenav-item-link" >
                       <i class="mdi mdi-certificate-outline"></i>
                       <span class="nav-text">Clearance</span>
                     </a>
@@ -401,6 +401,31 @@
 
 
   </script>
+   <style>
+    #payment-content {
+position: relative;
+z-index: 1;
+background: none; /* remove any direct background */
+}
+
+#payment-content::before {
+content: "";
+position: absolute;
+top: 0; left: 0; right: 0; bottom: 0;
+background: url('https://upload.wikimedia.org/wikipedia/commons/b/b6/Seal_of_the_President_of_Nigeria.svg') no-repeat center center;
+background-size: contain;
+opacity: 0.15; /* adjust to desired faintness */
+z-index: 0;
+pointer-events: none; /* let clicks pass through */
+}
+
+#payment-content > * {
+position: relative;
+z-index: 1;
+}
+
+     </style>
+
 
 <div class="col-md-12  d-none" id="paymentProofSection">
     <div class="col-md-12 border rounded p-4 bg-white" id="payment-content" style="font-family: 'Segoe UI', sans-serif; color: #333; max-width: 800px; margin: auto;">
@@ -415,9 +440,10 @@
         <p class="mb-1"><strong>Receipt Number:</strong> RCPT-2025-000456</p>
         <p class="mb-1"><strong>Applicant Name:</strong> Kenneth</p>
         <p class="mb-1"><strong>Application Type:</strong> Export Certificate</p>
-        <p class="mb-1"><strong>Payment Reference:</strong> UPI20250410123456</p>
+        <p class="mb-1"><strong>Payment Reference:</strong> ENAIRA20250410123456</p>
         <p class="mb-1"><strong>Transaction ID:</strong> TXN456789123</p>
         <p class="mb-1"><strong>Date & Time:</strong> April 10, 2025 - 05:45 PM</p>
+        <p class="mb-1"><strong>VAT:</strong> ₦100.00</p>
         <p class="mb-1"><strong>Amount Paid:</strong> ₦300.00 (Including ₦100 Tax)</p>
         <p class="mb-1"><strong>Payment Method:</strong> UPI (Bluemen Pay)</p>
       </div>
